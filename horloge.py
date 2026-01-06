@@ -3,7 +3,7 @@ import threading
 from datetime import datetime
 from typing import Tuple
 
-# Variables globales
+
 alarme = None
 mode_12h = False
 pause = False
