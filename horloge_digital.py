@@ -12,6 +12,7 @@ class AnalogClock(tk.Tk):
         # Alarm variables
         self.alarm_hour = tk.IntVar(value=7)
         self.alarm_minute = tk.IntVar(value=0)
+        self.alarm_second = tk.IntVar(value=0)
         self.alarm_active = tk.BooleanVar(value=False)
 
         self.create_widgets()
@@ -45,10 +46,17 @@ class AnalogClock(tk.Tk):
             textvariable=self.alarm_minute, format="%02.0f"
         ).grid(row=0, column=3)
 
+        tk.Label(alarm_frame, text=":").grid(row=0, column=4)
+
+        tk.Spinbox(
+            alarm_frame, from_=0, to=59, width=3,
+            textvariable=self.alarm_second, format="%02.0f"
+        ).grid(row=0, column=5)
+
         tk.Checkbutton(
             alarm_frame, text="Enable",
             variable=self.alarm_active
-        ).grid(row=0, column=4, padx=10)
+        ).grid(row=0, column=8, padx=10)
 
         self.update_clock()
 
@@ -96,7 +104,7 @@ class AnalogClock(tk.Tk):
          if self.alarm_active.get():
             if (current_time.tm_hour == self.alarm_hour.get() and
                 current_time.tm_min == self.alarm_minute.get() and
-                current_time.tm_sec == 0):
+                current_time.tm_sec == self.alarm_second.get()):
 
                 self.trigger_alarm()
 
