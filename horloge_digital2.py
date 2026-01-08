@@ -129,9 +129,9 @@ def create_clock():
 
         # Alarm check
         if alarm_active.get():
-            if (current_time.tm_hour == alarm_hour.get() and
-                current_time.tm_min == alarm_minute.get() and
-                current_time.tm_sec == alarm_second.get()):
+            if (current_time.tm_hour == int(alarm_hour.get()) and
+                current_time.tm_min == int(alarm_minute.get()) and
+                current_time.tm_sec == int(alarm_second.get())):
                 trigger_alarm()
 
         root.after(1000, update_clock)
