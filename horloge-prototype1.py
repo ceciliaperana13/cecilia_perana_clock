@@ -2,7 +2,7 @@ import time
 import os
 from datetime import datetime
 import threading
-import sys
+
 
 class Clock:
     def __init__(self):
