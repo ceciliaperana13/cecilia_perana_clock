@@ -1,2 +1,2 @@
 # cecilia_perana_clock
-horloge
+dispositif d'horloge par python sous forme de resulats terminal + tkinter
